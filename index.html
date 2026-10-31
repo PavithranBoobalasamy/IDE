@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeIt.</title>
+  <link href="style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="split-container row m-0 p-0">
+    <div class="col m-0 p-0 editor" id="editor-container">
+      <div class="d-flex align-items-center justify-content-between editor-header">
+        <div class="branding">CodeIt.</div>
+        <button class="btn btn-primary run" onclick="run()">Run</button>
+      </div>
+      <div class="h-100" id="editor">
+      </div>
+    </div>
+    <div class="col m-0 p-0 renderer" id="renderer">
+      <iframe class="h-100 w-100"></iframe>
+    </div>
+  </div>
+</body>
+<script src="main.js" type="text/javascript" charset="utf-8"></script>
+<script>
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/nord_dark-css");
+  editor.session.setMode("ace/mode/html");
+
+  function run() {
+    const iframe = document.getElementById('renderer');
+    const code = editor.getValue();
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    iframeDoc.open();
+    iframeDoc.write(code);
+    iframeDoc.close();
+  }
+</script>
+
+</html>

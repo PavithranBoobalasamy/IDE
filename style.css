@@ -1,0 +1,36 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.split-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 3px;
+  color: blanchedalmond;
+  background-color: black;
+}
+
+.renderer,
+.editor {
+  height: 100%;
+  width: 50%;
+  border: 1.5px solid white;
+  background-color: rgb(26, 26, 26);
+  border-radius: 10px;
+}
+.editor-header {
+  height: 70px;
+  padding: 5px 10px;
+  background-color: rgb(49, 49, 49);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  .branding {
+    font-size: 20px;
+    font-weight: 700;
+    color: ghostwhite;
+  }
+}
